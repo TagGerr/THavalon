@@ -148,8 +148,6 @@ Tristan and Iseult ("The Lovers") are two Good roles that know each other as Goo
 
 The Lovers are a valid target for Assassination.  
 
-Note that in 5 and 6 player games, it is possible for there to be only one Lover. In games with at least 7 players, if there is only one Lover present, they become Uther instead (see below). 
-
 #### Lancelot 
 Lancelot is a Good role that is allowed to play Reversal cards. They are provided no other information, and they appear Evil to Merlin. 
 
