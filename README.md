@@ -33,6 +33,13 @@ The number of proposals in each Round is now equal to one more than the number o
 #### Force
 The last proposal of a round is no longer voted on; the Leader may choose any Team they want, and that Team is automatically considered to have been approved, as if by a majority of players voting Approve. (This replaces the rule where Evil wins if five Teams are rejected in a single round.) 
 
+In games with 7 or more players, the Force proposal is also susceptible to the Evil team's Hijack ability, except when two missions have already Failed. (Note: This ability basically ensures that the first time a mission proposal gets to Force, it will Fail one way or another.) 
+
+##### Team Ability: Hijack 
+A random Evil player other than Mordred is given this ability at the start of the game. They may use this ability in addition to all of their other abilities. 
+
+Starting on the second Round, if there are less than 2 failed Quests and the mission is sent via Force, the Evil player who has this ability may formally declare as Evil to replace one person on the mission team with themselves. This ability is only usable once per game, and the player with this ability is not required to use this ability even if the conditions are met. 
+
 #### Inquisition
 Inquisition is a new mechanic to encourage players to consider voting for earlier proposals in a round. Inquisition has two varieties: "Strong", and "Weak". Both Strong and Weak Inquisition provide the Leader of the Team with powerful information gathering abilities during the Quest Phase. 
 
@@ -117,13 +124,6 @@ Evil is considered to have won if they correctly identify Merlin, they correctly
 ## Roles
 In addition to the new rules listed above, THavalon offers almost a dozen new or reworked roles. It should be noted that not all roles listed here will be in any given game. There will always be the appropriate number of Good and Evil roles for the number of players in the game, but beyond that the roles present are randomized. This means that for roles that see a list of other roles, there is no guarantee that they will see as many people as expected. For example, Percival may only see one person, and they must then determine whether that person is Merlin or Morgana. It is also possible for someone to see no one; if there is neither a Merlin nor a Morgana, Percival will only be aware that neither of these roles are present in the current game. 
 
-### Substitutions 
-In games of 7 players or more, players with certain roles (Tristan/Iseult, Guinevere, Percival) will have their role changed into an alternative role if none of the roles they have information about are present. 
-
-- A lone Lover (Tristan with no Iseult or vice versa) will become Uther. 
-- A lone Percival (Percival with no Merlin and no Morgana) will become Galahad.
-- A lone Guinevere (Guinevere with no Arthur, no Lancelot, and no Maelegant) will become Ygraine. [Ygraine's conditions are so precise that she will only appear once per 504 10-player games; this will be changed eventually.] 
-
 The only time that roles are guaranteed to be in the game is during 9 player games; both Pelinor and the Questing Beast roles are guaranteed to appear in 9 player games.
 
 ### Good (Loyal Servants of Arthur) 
@@ -143,22 +143,12 @@ Percival's role is unchanged from the base rules of Avalon. They know which play
 
 - Percival sees Merlin and Morgana, indistinguishably. 
 
-#### Galahad 
-Galahad is a Good role that replaces a lone Percival in games with at least 7 players. Galahad is told which evil roles are present in the game, but receives no information as to which players possess any of these roles. 
-
-Galahad cannot appear in games with less than 7 players, or in a game where both Percival and either Merlin or Morgana are present. 
-
 #### Tristan and Iseult 
 Tristan and Iseult ("The Lovers") are two Good roles that know each other as Good. 
 
 The Lovers are a valid target for Assassination.  
 
 Note that in 5 and 6 player games, it is possible for there to be only one Lover. In games with at least 7 players, if there is only one Lover present, they become Uther instead (see below). 
-
-#### Uther 
-Uther is a Good role that replaces a lone Lover in games with at least 7 players. Uther is told that one random person is also Good, but is not provided any information on their role beyond that. 
-
-Uther cannot appear in games with less than 7 players, or in a game where both Tristan and Iseult are present. 
 
 #### Lancelot 
 Lancelot is a Good role that is allowed to play Reversal cards. They are provided no other information, and they appear Evil to Merlin. 
@@ -178,24 +168,23 @@ Arthur only appears in games with at least 7 players.
 ##### Ability: Proclamation 
 After two Quests have Failed, you may (but are not required to) formally declare as Arthur, establishing you as a Good player for the remainder of the game. You may still propose teams, vote on proposals, and be selected to go on Quests, as usual. You may use this ability at any point in the game after two Quests have Failed.
 
-#### Ygraine 
-Ygraine is a Good role that replaces a lone Guinevere in games with at least 7 players. Ygraine is told one player who has an evil role (other than Mordred). (Due to the limited number of roles, Ygraine's existence in 8 or 10 player also informs the player with Ygraine that the good roles present in the game are Merlin, Percival, Tristan, and Iseult, plus Gawain in 10 player.) 
 
-Ygraine cannot appear in games with less than 7 players, nor can she appear in a game where both Guinevere and any of Arthur, Lancelot, or Maelegant are present. 
+#### Titania 
+Titania is a Good role who is provided no information but can intervene on certain missions to potentially change the outcome.
 
-#### Gawain 
-Gawain is a Good role who possess a variant of the Inquisition ability. Furthermore, Gawain is shown a list of three people, of which at least one player is Good. 
+Titania can only appear in games with 10 players, and is mutually exclusive with Oberon. 
 
-- Gawain is shown one random Good player, and two random players who could be Good or Evil, indistinguishably. 
+##### Ability: Suspend
+Once per game, on either the 2nd mission (always) or the 3rd mission (if the first two missions had different outcomes, e.g. 1 Successful mission and 1 Failed mission), if Titania is not on the mission team, they may formally declare as Titania after mission cards have been selected (and potentially Inquisitioned) but before they are shuffled and revealed. Titania may then collect all mission cards, excluding the mission leader's, shuffle them, examine them, and pick one card to remove. The mission leader's card and remaining cards are then shuffled together and the cards revealed as per usual. 
 
-Gawain only appears in games with 10 players. 
+The next time Titania is on a mission, they must play the card they removed on a previous mission, even if they normally could not play that card (e.g. Reversal or Fail). 
 
-##### Gawain: Inquisition 
-Starting on the second Round, if a Team without Gawain is approved, Gawain can declare and use a Weak Inquisition ability on a player of their choice. If Gawain reveals a Success, they become "Exiled" and may no longer be put on mission teams or use this ability, although they may still propose Teams and vote on proposed Teams. If Gawain reveals a Fail or a Reversal, they are not "Exiled" and they may continue to be put on teams or use their ability on rounds they are not on. Gawain may (but is not required to) use their ability on any mission after they declare, provided they are not on the mission team or Exiled. 
+This ability has lots of interaction with other mechanics. Rulings for certain scenarios are as follows: 
+- If the current mission team does not contain the mission leader, a Titania using the Suspend ability may look at all cards played on that mission and remove one. 
+- If Titania attempts to suspend Agravaine's Fail card (e.g. the Agravaine player is one of the people whose card Titania can Suspend, and there is only one Fail among that set of cards), Agravaine may declare to cause the mission to Fail regardless. If Agarvaine does this, Titania is **not** required to play a Fail card on the next mission they are on. 
+- Titania cannot look at or Suspend a card that has already been removed via Strong Inquisition. 
 
-Gawain may choose to not use their ability, even if they would be able to, but should they choose to declare as Gawain during a Quest phase, they must use their ability that round if able. Gawain's ability occurs after any other Inquisitions are resolved, and it does not count towards the once per game limit of typical Inquisitions. 
-
-In 10 player games, players are expected to assume there is a Gawain (e.g. choosing the Quest card they wish to play and making it clear which card they have chosen to play for that Quest), even if they don't know if Gawain is present. This is to preserve the surprise of the initial Gawain declaration. 
+In 10 player games, players are expected to assume there is a Titania/Oberon (e.g. choosing the Quest card they wish to play and making it clear which card they have chosen to play for that Quest) for the 2nd and 3rd missions, even if they don't know if Titania/Oberon is present. This is to preserve the surprise of the Titania/Oberon declaration. 
 
 ### Evil (Minions of Mordred) 
 The goal of Evil players is to have either three missions fail, or should Good have won, assassinate either Merlin or the Lovers. 
@@ -227,18 +216,6 @@ Maelegant is an Evil role that is allowed to play Reversal cards and knows most 
 - Morgana is not aware of Oberon
 - Maelegant is seen by Guinevere and Merlin 
 
-#### Oberon 
-Oberon's role is significantly changed from the base rules of Avalon. Oberon knows who else is Evil, but other Evil players do not generally know who Oberon is, although they will know that there is an Oberon (by the lack of a visible Evil character). Oberon also has an ability that allows them to put themselves on a team if certain conditions are met. 
-
-- Oberon correctly sees Agravaine, Colgrevance, Maelegant, Mordred, and Morgana as Evil
-- Oberon is not seen by other Evil characters. 
-- Oberon is correctly seen by Merlin as Evil 
-
-Oberon only appears in games with 7, 8, or 10 players. 
-
-##### Ability: Changeling 
-Starting on the second Round, if there are less than 2 failed Quests and the mission is sent via Force (see Team Building Phase, above), Oberon may declare to replace one person on the mission team with themself. This ability is only usable once per game, but Oberon may choose to not use the ability. 
-
 #### Agravaine 
 Agravaine is an Evil role that can be present in games with 7 or more players. In addition to knowing the other visible Evil roles (e.g. all Evil except Oberon), Agravaine can cause any mission they are on to Fail, even if it would have succeeded. 
 
@@ -260,6 +237,24 @@ Colgrevance is an Evil role that can be present in games with 10 players. Colgre
 
 Colgrevance only appears in games with at least 7 players. 
 
+
+#### Oberon 
+Oberon is an Evil role who is hidden from the rest of the Evil team. All members of the Evil team will know there's an Oberon, but not who it is (a Colgrevance will know who an Oberon is anyway, as per their information). Oberon is the evil-counterpart to Titania, and can declare to make a possibly successful mission fail or generate chaos. 
+
+Oberon can only appear in games with 10 players, and is mutually exclusive with Titania. Note that, unlike Titania, Oberon is seen by Merlin as Evil.  
+
+##### Ability: Suspend
+Once per game, on either the 2nd mission (always) or the 3rd mission (if the first two missions had different outcomes, e.g. 1 Successful mission and 1 Failed mission), if Oberon is not on the mission team, they may formally declare as Titania (even though they are Oberon) after mission cards have been selected (and potentially Inquisitioned) but before they are shuffled and revealed. Oberon may then collect all mission cards, excluding the mission leader's, shuffle them, examine them, and pick one card to remove. The mission leader's card and remaining cards are then shuffled together and the cards revealed as per usual. 
+
+The next time Oberon is on a mission, they must play the card they removed on a previous mission, even if they normally could not play that card (e.g. Reversal). 
+
+This ability has lots of interaction with other mechanics. Rulings for certain scenarios are as follows: 
+- If the current mission team does not contain the mission leader, a Oberon using the Suspend ability may look at all cards played on that mission and remove one. 
+- If Oberon attempts to Suspend Agravaine's Fail card (e.g. the Agravaine player is one of the people whose card Oberon can Suspend, and there is only one Fail among that set of cards), Agravaine may declare to cause the mission to Fail regardless. If Agarvaine does this, Oberon is **not** required to play a Fail card on the next mission they are on. 
+- Oberon cannot look at or Suspend a card that has already been removed via Strong Inquisition. 
+
+In 10 player games, players are expected to assume there is a Titania/Oberon (e.g. choosing the Quest card they wish to play and making it clear which card they have chosen to play for that Quest) for the 2nd and 3rd missions, even if they don't know if Titania/Oberon is present. This is to preserve the surprise of the Titania/Oberon declaration. 
+
 ### Neutral 
 The goal of Neutral roles depends on the role. Currently, the two neutral roles are guaranteed to appear in 9 player games, and will not appear in any other game. (Note that these roles are currently not playtested, and thus may be hilariously unbalanced). 
 
@@ -269,8 +264,6 @@ Pelinor's goal is to find the Questing Beast, and then ideally go on a Quest wit
 1) There are no Questing Beast Was Here cards played at any point in the game. 
 2) Pelinor is on a Quest where a Questing Beast Was Here card is also played, and 3 Quests succeed. 
 3) If the only Questing Beast Was Here card was played on the final Quest of the game (e.g. at the same time that three missions had now succeeded or three missions had failed), Pelinor declares (before any other post-game rounds) and chooses one person they believe to be the Questing Beast. After all other post-game rounds are completed (after Redemption and/or Assassination), the person Pelinor has chosen informs Pelinor of whether they were correct or not. Pelinor wins if they were correct, and loses if they were incorrect. 
-
-
 
 #### The Questing Beast
 The Questing Beast's goal is to make their presence known, and then to evade Pelinor for the rest of the game. The Questing Beast is told which player is Pelinor prior to the beginning of the game. Furthermore, to make their presence more conspicuous, the Questing Beast must play Questing Beast Was Here cards whenever they are sent on a Quest. Once per game, the Questing Beast can choose to play a Success instead of a Questing Beast Was Here card, in order to throw Pelinor off their trail. 
