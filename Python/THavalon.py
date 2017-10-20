@@ -40,9 +40,11 @@ def main():
 	if num_players >= 7:
 		good_roles.append("Guinevere")
 		good_roles.append("Arthur")
-		evil_roles.append("Agravaine")
 		evil_roles.append("Colgrevance")
 
+	if num_players >= 8: 
+		evil_roles.append("Agravaine")
+		
 	if num_players == 10:
 		if (random.choice([True, False])):
 			good_roles.append("Titania")
@@ -119,7 +121,7 @@ def main():
 		del reverse_assignments["Iseult"]
 		reverse_assignments["Uther"] = iseult_player
 	''' 
-	
+	'''
 	# lone guinevere -> ygraine
 	if ("Guinevere" in good_roles_in_game and "Lancelot" not in good_roles_in_game and "Arthur" not in good_roles_in_game and "Maelegant" not in evil_roles_in_game and num_players >= 7):
 		good_roles_in_game.remove("Guinevere")
@@ -128,6 +130,7 @@ def main():
 		assignments[guinevere_player] = "Ygraine" 
 		del reverse_assignments["Guinevere"]
 		reverse_assignments["Ygraine"] = guinevere_player
+	'''
 	'''
 	# lone percival -> galahad
 	if ("Percival" in good_roles_in_game and "Merlin" not in good_roles_in_game and "Morgana" not in evil_roles_in_game and num_players >= 7):
@@ -180,7 +183,7 @@ def main():
 		with open(filename, "w") as file:
 			file.write("You are Percival.\n")
 			for seen_player in seen:
-				file.write("You see " + seen_player + " as Merlin (or Morgana).\n")
+				file.write("You see " + seen_player + " as Merlin (or is it...?).\n")
 
 	if "Tristan" in good_roles_in_game:
 		# write the info to Tristan's file
@@ -221,20 +224,36 @@ def main():
 	if "Guinevere" in good_roles_in_game:
 		# determine which roles Guinevere sees
 		seen = []
-		for evil_role in evil_roles_in_game:
-			seen.append(evil_role)
+		if (random.choice([True, False])):
+			# evil
+			if "Mordred" in evil_roles_in_game:
+				guin_evil_no_mordred = list(set(evil_players) - set(reverse_assignments["Mordred"]))
+			else: 
+				guin_evil_no_mordred = list(set(evil_players))
+			random.shuffle(guin_evil_no_mordred)
+			seen.append(guin_evil_no_mordred[0])
+			seen.append(guin_evil_no_mordred[1])
+		else:
+			# good 
+			if "Mordred" in evil_roles_in_game:
+				guin_good_and_mordred = list(set(good_players) - set(reverse_assignments["Guinevere"])) + list(set(reverse_assignments["Mordred"]))
+			else: 
+				guin_good_and_mordred = list(set(good_players))
+			random.shuffle(guin_good_and_mordred)
+			seen.append(guin_good_and_mordred[0])
+			seen.append(guin_good_and_mordred[1])
 		random.shuffle(seen)
 
-		# and write this info to Arthur's file
+		# and write this info to Guinevere's file
 		player_name = reverse_assignments["Guinevere"]
 		filename = "game/" + player_name
 		with open(filename, "w") as file:
 			file.write("You are Guinevere.\n\n")
-			file.write("The following evil roles are in the game:\n")
-			for seen_role in seen:
-					file.write(seen_role + "\n")
+			file.write("The following players are on the same team:\n")
+			for seen_player in seen:
+					file.write(seen_player + "\n")
 					
-			file.write("\n NOTE: You are a valid assassination target.\n")
+			file.write("\n NOTE: Mordred is considered to be good for the purposes of this ability. If you determine that one of the people you see is Good, the other person can be either Good or Mordred.\n")
 			
 	if "Arthur" in good_roles_in_game:
 		# determine which roles Arthur sees
@@ -436,16 +455,16 @@ def main():
 			file.write("[3]: Pelinor fails to identify you after the conclusion of the game.\n\n")
 			file.write(pelinor + " is Pelinor.\n")
 
-	# changeling 
+	# hijack 
 	if (num_players >= 7): 
 		if "Mordred" in evil_roles_in_game:
 			evil_players_no_mordred = list(set(evil_players) - set([reverse_assignments["Mordred"]]))
 		else: 
 			evil_players_no_mordred = list(set(evil_players))
 		random.shuffle(evil_players_no_mordred)
-		bonus_ability = evil_players_no_mordred[0] 
-		bonus_ability_filename = "game/" + bonus_ability 
-		with open(bonus_ability_filename, "a") as file: 
+		bonus_ability_hijack = evil_players_no_mordred[0] 
+		bonus_hijack_filename = "game/" + bonus_ability_hijack 
+		with open(bonus_hijack_filename, "a") as file: 
 			file.write("\n \n \nYou also have the following ability, in addition to any other abilities you may possess.")
 			file.write("\nAbility: Should any mission get to the last proposal of the round, after the people on the mission have been named, you may declare as Oberon to replace one person on that mission with yourself.\n\n")
 			file.write("Note: You may not use this ability after two missions have already failed. Furthermore, you may only use this ability once per game.\n"); 
