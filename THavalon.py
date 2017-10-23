@@ -30,7 +30,7 @@ def main():
 	all_evil_roles_in_order = ["Mordred", "Morgana", "Maelegant", "Agravaine", "Colgrevance", "Oberon"]
 
 	# assign the roles in the game
-	good_roles = ["Merlin", "Percival", "Tristan", "Iseult"]
+	good_roles = ["Merlin", "Percival", "Tristan", "Iseult", "Guinevere"]
 	evil_roles = ["Mordred", "Morgana"]
 
 	good_roles.append("Lancelot")
@@ -38,7 +38,7 @@ def main():
 
 
 	if num_players >= 7:
-		good_roles.append("Guinevere")
+		# good_roles.append("Guinevere")
 		good_roles.append("Arthur")
 		evil_roles.append("Colgrevance")
 
@@ -222,38 +222,73 @@ def main():
 			file.write("Note: In games with at least 7 players, a Reversal played on the 4th mission results in a failed mission if there is only one Fail card, and otherwise succeeds. Reversal does not interfere with Agravaine's ability to cause the mission to fail\n")
 
 	if "Guinevere" in good_roles_in_game:
-		# determine which roles Guinevere sees
-		seen = []
-		if (random.choice([True, False])):
-			# evil
-			if "Mordred" in evil_roles_in_game:
-				guin_evil_no_mordred = list(set(evil_players) - set([reverse_assignments["Mordred"]]))
-			else: 
-				guin_evil_no_mordred = list(set(evil_players))
-			random.shuffle(guin_evil_no_mordred)
-			seen.append(guin_evil_no_mordred[0])
-			seen.append(guin_evil_no_mordred[1])
-		else:
-			# good 
-			if "Mordred" in evil_roles_in_game:
-				guin_good_and_mordred = list(set(good_players) - set([reverse_assignments["Guinevere"]])) + list(set([reverse_assignments["Mordred"]]))
-			else: 
-				guin_good_and_mordred = list(set(good_players) - set([reverse_assignments["Guinevere"]]))
-			random.shuffle(guin_good_and_mordred)
-			seen.append(guin_good_and_mordred[0])
-			seen.append(guin_good_and_mordred[1])
-		random.shuffle(seen)
-
+		# guinevere sees two random "rumors"
+		# rumors currently are only player knowledge (e.g. A sees B)
+		rumors = []
+		truths = []
+		# lies = []
+		evil_players_no_obemord = list(set(evil_players)) 
+		evil_players_no_mordred = list(set(evil_players)) 
+		if "Mordred" in evil_roles_in_game:
+			evil_players_no_obemord.remove(reverse_assignments["Mordred"]) 
+			evil_players_no_mordred.remove(reverse_assignments["Mordred"]) 
+		if "Oberon" in evil_roles_in_game:
+			evil_players_no_obemord.remove(reverse_assignments["Oberon"]) 
+		# rumor generation here
+		for evil_player in evil_players_no_obemord:
+			other_evil_players = list(set(evil_players_no_obemord) - set(evil_player))
+			for evil_player_two in other_evil_players: 
+				truths.append([evil_player,evil_player_two])
+		if "Oberon" in evil_roles_in_game:
+			oberon = reverse_assignments["Oberon"]
+			for evil_player_not_oberon in evil_players_no_obemord: 
+				truths.append([oberon,evil_player_not_oberon])
+		if "Merlin" in good_roles_in_game:
+			merlin = reverse_assignments["Merlin"]
+			for evil_player_not_mordred in evil_players_no_mordred: 
+				truths.append([merlin,evil_player_not_mordred])
+			if "Lancelot" in good_roles_in_game: 
+				lancelot = reverse_assignments["Lancelot"]
+				truths.append([merlin,lancelot])
+		if "Percival" in good_roles_in_game: 
+			percival = reverse_assignments["Percival"]
+			if "Merlin" in good_roles_in_game: 
+				merlin = reverse_assignments["Merlin"]
+				truths.append([percival,merlin])
+			if "Morgana" in evil_roles_in_game: 
+				morgana = reverse_assignments["Morgana"]
+				truths.append([percival,morgana])
+		if "Tristan" in good_roles_in_game: 
+			tristan = reverse_assignments["Tristan"]
+			if "Iseult" in good_roles_in_game: 
+				iseult = reverse_assignments["Iseult"]
+				truths.append([tristan,iseult])
+				truths.append([iseult,tristan])
+		if "Arthur" in good_roles_in_game: 
+			arthur = reverse_assignments["Arthur"]
+			guinevere = reverse_assignments["Guinevere"]
+			good_players_no_arthur = list(set(good_players) - set([arthur,guinevere])) 
+			for good_player in good_players_no_arthur:
+				truths.append([arthur,good_player])
+				
+		random.shuffle(truths)
+		# random.shuffle(lies)
+		
+		if len(truths) > 0: 
+			rumors.append(truths[0])
+		if len(truths) > 1 and (num_players >= 7): 
+			rumors.append(truths[1])
+		if (len(truths) > 2) and (num_players >= 10): 
+			rumors.append(truths[2])
+		
+		random.shuffle(rumors)
 		# and write this info to Guinevere's file
 		player_name = reverse_assignments["Guinevere"]
 		filename = "game/" + player_name
 		with open(filename, "w") as file:
 			file.write("You are Guinevere.\n\n")
-			file.write("The following players are on the same team:\n")
-			for seen_player in seen:
-					file.write(seen_player + "\n")
-					
-			file.write("\n NOTE: Mordred is considered to be good for the purposes of this ability. If you determine that one of the people you see is Good, the other person can be either Good or Mordred.\n")
+			for rumor in rumors: 
+				file.write("{} knows something about {}.\n".format(rumor[0],rumor[1]))
 			
 	if "Arthur" in good_roles_in_game:
 		# determine which roles Arthur sees
@@ -486,7 +521,13 @@ def main():
 		for role in all_evil_roles_in_order:
 			if role in reverse_assignments:
 				file.write(reverse_assignments[role] + " -> " + role + "\n")
-
-
+		file.write("\n\nMISCELLANEOUS:\n")
+		if bonus_ability_hijack: 
+			file.write(bonus_ability_hijack + " has the Hijack ability.\n") 
+		if "Guinevere" in good_roles_in_game: 
+			for rumor in rumors: 
+				file.write("Guinevere saw that {} knows something about {}.\n".format(rumor[0],rumor[1]))
+		
+				
 if __name__ == "__main__":
 	main()
