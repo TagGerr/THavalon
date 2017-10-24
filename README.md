@@ -165,7 +165,7 @@ Guinevere's rumors can include any of the following:
 - Merlin seeing Lancelot 
 - Tristan and Iseult seeing each other
 - Evil (other than Mordred) seeing other Evil (other than Mordred or Oberon) 
-- Oberon seeing Evil 
+- Oberon seeing Evil (except for Mordred) 
 - Arthur knowing about a role's presence
 
 Guinevere is given one rumor in 5 player games, 2 rumors in 7/8 player games and 3 rumors in 10 player games. 
