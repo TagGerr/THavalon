@@ -116,10 +116,15 @@ The Assassination Phase remains largely unchanged, but there are several new opt
 - Assassinating two people as the Lovers (Tristan and Iseult). 
 - Assassinating no one. 
 
-Evil is welcome to discuss amongst themselves, but at the end of discussion, the ranking Assassin (e.g. the person who appears first in this list: Mordred, Morgana, Maelegant, Agravaine, Colgrevance, Oberon) makes the final decision of who to Assassinate. 
+In games with fewer than 7 players, Evil is welcome to discuss amongst themselves, but at the end of discussion, the ranking Assassin (e.g. the person who appears first in this list: Mordred, Morgana, Maelegant, Agravaine, Colgrevance, Oberon) makes the final decision of who to Assassinate. 
+
+In games with more than 7 players, the ability of the Evil team to discuss depends on how many missions Failed prior to three missions Succeeding. 
+
+- 0 missions failed: Each Evil player states their role. The ranking Assassin then chooses an Assassination target with no discussion or input from the rest of Evil. 
+- 1 mission failed: Each Evil player states their role and who they think should be Assassinated. The ranking Assassin then chooses an Assassination target with no further discussion or input from the rest of Evil. 
+- 2 missions failed: Each Evil player states their role. Evil is then welcome to discuss who they believe should be Assassinated, with the ranking Assassin making the final decision. 
 
 Evil is considered to have won if they correctly identify Merlin, they correctly identify both of the two Lovers, or they choose to assassinate no one and there is neither a Merlin nor a pair of Lovers in the game.
-
 
 ## Roles
 In addition to the new rules listed above, THavalon offers almost a dozen new or reworked roles. It should be noted that not all roles listed here will be in any given game. There will always be the appropriate number of Good and Evil roles for the number of players in the game, but beyond that the roles present are randomized. This means that for roles that see a list of other roles, there is no guarantee that they will see as many people as expected. For example, Percival may only see one person, and they must then determine whether that person is Merlin or Morgana. It is also possible for someone to see no one; if there is neither a Merlin nor a Morgana, Percival will only be aware that neither of these roles are present in the current game. 
@@ -152,14 +157,21 @@ The Lovers are a valid target for Assassination.
 Lancelot is a Good role that is allowed to play Reversal cards. They are provided no other information, and they appear Evil to Merlin. 
 
 #### Guinevere 
-Guinevere is a Good role who behaves similar to Percival, in that they are shown several people. They are given a list of players who have the Lancelot, Maelegant, and Arthur roles, but must figure it out for themselves which player has which role. 
+Guinevere is a Good role who knows about other role relationships present in the game. Guinevere is given one to three pieces of information ("rumors") of the form "A knows something about B". It is up to Guinevere to make sense of this cryptic information. 
 
-- Guinevere sees Lancelot, Maelegant, and Arthur, indistinguishably.
+Guinevere's rumors can include any of the following: 
+- Percival seeing Merlin or Morgana
+- Merlin seeing Evil (except for Mordred) 
+- Merlin seeing Lancelot 
+- Tristan and Iseult seeing each other
+- Evil (other than Mordred) seeing other Evil (other than Mordred or Oberon) 
+- Oberon seeing Evil 
+- Arthur knowing about a role's presence
 
-Guinevere only appears in games with at least 7 players. 
+Guinevere is given one rumor in 5 player games, 2 rumors in 7/8 player games and 3 rumors in 10 player games. 
 
 #### Arthur 
-Arthur is a Good role that knows which other good roles are present in the game, but has no information about which players possess any of the roles present. Furthermore, Arthur has an ability, called Redemption, which allows Good one final chance at victory. 
+Arthur is a Good role that knows which other good roles are present in the game, but has no information about which players possess any of the roles present. Furthermore, Arthur has an ability, called Proclamation, which allows Good to rally pending their imminent loss.  
 
 Arthur only appears in games with at least 7 players. 
 
@@ -215,13 +227,13 @@ Maelegant is an Evil role that is allowed to play Reversal cards and knows most 
 - Maelegant is seen by Guinevere and Merlin 
 
 #### Agravaine 
-Agravaine is an Evil role that can be present in games with 7 or more players. In addition to knowing the other visible Evil roles (e.g. all Evil except Oberon), Agravaine can cause any mission they are on to Fail, even if it would have succeeded. 
+Agravaine is an Evil role that can force missions they go on to Fail. In addition to knowing the other visible Evil roles (e.g. all Evil except Oberon), Agravaine can cause any mission they are on to Fail, even if it would have succeeded. 
 
 - Agravaine correctly sees Colgrevance, Maelegant, Mordred, and Morgana as Evil 
 - Agravaine is not aware of Oberon
 - Agravaine must play a Fail card whenever they are sent on a Quest. 
 
-Agravaine only appears in games with at least 7 players. 
+Agravaine only appears in games with at least 8 players. 
 
 ##### Ability: Betrayal 
 After mission cards have been revealed, if the Quest is considered to have succeeded despite Agravaine playing their Fail card, Agravaine may declare to cause it to fail anyway. Situations where this is relevant are when a single Reversal is played, the mission requires 2 Fails, or Agravaine is targeted by the removal option of Strong Inquisition. 
