@@ -236,7 +236,7 @@ def main():
 			evil_players_no_obemord.remove(reverse_assignments["Oberon"]) 
 		# rumor generation here
 		for evil_player in evil_players_no_obemord:
-			other_evil_players = list(set(evil_players_no_obemord) - set(evil_player))
+			other_evil_players = list(set(evil_players_no_obemord) - set([evil_player]))
 			for evil_player_two in other_evil_players: 
 				truths.append([evil_player,evil_player_two])
 		if "Oberon" in evil_roles_in_game:
@@ -522,6 +522,8 @@ def main():
 			if role in reverse_assignments:
 				file.write(reverse_assignments[role] + " -> " + role + "\n")
 		file.write("\n\nMISCELLANEOUS:\n")
+		file.write("{} and {} proposed teams for the 1st mission.\n".format(first_mission_proposers[0],first_mission_proposers[1]))
+		file.write("{} had the 1st proposal of the 2nd mission.\n".format(second_mission_starter))
 		if bonus_ability_hijack: 
 			file.write(bonus_ability_hijack + " has the Hijack ability.\n") 
 		if "Guinevere" in good_roles_in_game: 
