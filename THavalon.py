@@ -491,6 +491,7 @@ def main():
 			file.write(pelinor + " is Pelinor.\n")
 
 	# hijack 
+	bonus_ability_hijack = 0
 	if (num_players >= 7): 
 		if "Mordred" in evil_roles_in_game:
 			evil_players_no_mordred = list(set(evil_players) - set([reverse_assignments["Mordred"]]))
