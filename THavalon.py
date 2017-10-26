@@ -226,7 +226,22 @@ def main():
 		# rumors currently are only player knowledge (e.g. A sees B)
 		rumors = []
 		truths = []
-		# lies = []
+		lies = []
+		connections = [] 
+		
+		not_guin = list(set(players) - set([reverse_assignments["Guinevere"]]))
+		if "Mordred" in evil_roles_in_game:
+			not_guin.remove(reverse_assignments["Mordred"]) 
+		
+		for player in not_guin:
+			other_players = list(set(not_guin)-set([player])) 
+			for other_player in other_players: 
+				connections.append([player,other_player])
+		
+		
+		#lies = list(set(connections)-set(truths))
+		#lies = connections.remove(set(truths))
+		
 		evil_players_no_obemord = list(set(evil_players)) 
 		evil_players_no_mordred = list(set(evil_players)) 
 		if "Mordred" in evil_roles_in_game:
@@ -270,17 +285,25 @@ def main():
 			good_players_no_arthur = list(set(good_players) - set([arthur,guinevere])) 
 			for good_player in good_players_no_arthur:
 				truths.append([arthur,good_player])
-				
-		random.shuffle(truths)
-		# random.shuffle(lies)
 		
+		lies = [lie for lie in connections if lie not in truths]
+		random.shuffle(truths)
+		random.shuffle(lies)
+		
+		guin_truths = []
+		guin_lies = []
 		if len(truths) > 0: 
 			rumors.append(truths[0])
+			guin_truths.append(truths[0])
 		if len(truths) > 1 and (num_players >= 7): 
 			rumors.append(truths[1])
+			guin_truths.append(truths[1])
+			rumors.append(lies[0])
+			guin_lies.append(lies[0])
 		if (len(truths) > 2) and (num_players >= 10): 
 			rumors.append(truths[2])
-		
+			guin_truths.append(truths[2])
+			
 		random.shuffle(rumors)
 		# and write this info to Guinevere's file
 		player_name = reverse_assignments["Guinevere"]
@@ -289,7 +312,7 @@ def main():
 			file.write("You are Guinevere.\n\n")
 			for rumor in rumors: 
 				file.write("{} knows something about {}.\n".format(rumor[0],rumor[1]))
-			
+				
 	if "Arthur" in good_roles_in_game:
 		# determine which roles Arthur sees
 		seen = []
@@ -523,13 +546,15 @@ def main():
 			if role in reverse_assignments:
 				file.write(reverse_assignments[role] + " -> " + role + "\n")
 		file.write("\n\nMISCELLANEOUS:\n")
-		file.write("{} and {} proposed teams for the 1st mission.\n".format(first_mission_proposers[0],first_mission_proposers[1]))
-		file.write("{} had the 1st proposal of the 2nd mission.\n".format(second_mission_starter))
+		file.write("[Mission 1] {}, {}\n".format(first_mission_proposers[0],first_mission_proposers[1]))
+		file.write("[Mission 2] {} \n".format(second_mission_starter))
 		if bonus_ability_hijack: 
-			file.write(bonus_ability_hijack + " has the Hijack ability.\n") 
+			file.write("[Hijack] " + bonus_ability_hijack + "\n") 
 		if "Guinevere" in good_roles_in_game: 
-			for rumor in rumors: 
-				file.write("Guinevere saw that {} knows something about {}.\n".format(rumor[0],rumor[1]))
+			for truth in guin_truths: 
+				file.write("[Guinevere: Truth] {} -> {}\n".format(truth[0],truth[1]))
+			for lie in guin_lies: 
+				file.write("[Guinevere: Lie] {} -> {}\n".format(lie[0],lie[1]))
 		
 				
 if __name__ == "__main__":
