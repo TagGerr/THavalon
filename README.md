@@ -157,7 +157,7 @@ The Lovers are a valid target for Assassination.
 Lancelot is a Good role that is allowed to play Reversal cards. They are provided no other information, and they appear Evil to Merlin. 
 
 #### Guinevere 
-Guinevere is a Good role who knows about other role relationships present in the game. Guinevere is given one to four pieces of information ("rumors") of the form "A knows something about B". It is up to Guinevere to make sense of this cryptic information. 
+Guinevere is a Good role who knows about other role relationships present in the game. Guinevere is given two or three pieces of information ("rumors") of the form "A knows something about B". It is up to Guinevere to make sense of this cryptic information. 
 
 Guinevere's truths can include any of the following: 
 - Percival seeing Merlin or Morgana
@@ -168,15 +168,14 @@ Guinevere's truths can include any of the following:
 - Oberon seeing Evil (except for Mordred) 
 - Arthur knowing about a role's presence
 
-Guinevere is given one truth in 5 player games, 2 truths in 7/8 player games and 3 truths in 10 player games. 
+In addition to the correct information provided, Guinevere is also given a single piece of completely false information (e.g. a relationship between two unlinked players). 
 
-In games with 7 or more players, in addition to the correct information provided, Guinevere is also given a single piece of completely false information (e.g. a relationship between two unlinked players). 
+Guinevere is given one truth and one lie in 5 player games, and an additional truth in games with 7 or more players. 
 
 It is important to note that Guinevere will never see any information about Mordred (true or false) of any form. If there is a Mordred, Guinevere will have no rumors that point from or towards that person. 
 
 #### Arthur 
 Arthur is a Good role that knows which other good roles are present in the game, but has no information about which players possess any of the roles present. Furthermore, Arthur has an ability, called Proclamation, which allows Good to rally pending their imminent loss.  
-
 Arthur only appears in games with at least 7 players. 
 
 ##### Ability: Proclamation 
