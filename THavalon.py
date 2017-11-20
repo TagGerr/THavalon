@@ -167,7 +167,7 @@ def main():
 			for seen_player in seen:
 				file.write("You see " + seen_player + " as evil (or Lancelot).\n")
 
-	# Percil sees Merlin, Morgana* as Merlin
+	# Percival sees Merlin, Morgana* as Merlin
 	if "Percival" in good_roles_in_game:
 		# determine who Percival sees
 		seen = []
@@ -183,7 +183,7 @@ def main():
 		with open(filename, "w") as file:
 			file.write("You are Percival.\n")
 			for seen_player in seen:
-				file.write("You see " + seen_player + " as Merlin (or is it...?).\n")
+				file.write("You see " + seen_player + " as Merlin (or Morgana).\n")
 
 	if "Tristan" in good_roles_in_game:
 		# write the info to Tristan's file
@@ -293,16 +293,25 @@ def main():
 		guin_truths = []
 		guin_lies = []
 		if len(truths) > 0: 
-			rumors.append(truths[0])
-			guin_truths.append(truths[0])
-		if len(truths) > 1 and (num_players >= 7): 
-			rumors.append(truths[1])
-			guin_truths.append(truths[1])
-			rumors.append(lies[0])
-			guin_lies.append(lies[0])
-		if (len(truths) > 2) and (num_players >= 10): 
-			rumors.append(truths[2])
-			guin_truths.append(truths[2])
+			new_truth = truths.pop(0)
+			converse_truth = [new_truth[1],new_truth[0]]
+			lies = [lie for lie in lies if lie != converse_truth]
+			truths = [truth for truth in truths if truth != converse_truth]
+			rumors.append(new_truth)
+			guin_truths.append(new_truth)
+			new_lie = lies.pop(0)
+			converse_lie = [new_lie[1],new_lie[0]]
+			lies = [lie for lie in lies if lie != converse_lie]
+			truths = [truth for truth in truths if truth != converse_lie]
+			rumors.append(new_lie)
+			guin_lies.append(new_lie)
+		if len(truths) > 0 and (num_players >= 7): 
+			new_truth = truths.pop(0)
+			converse_truth = [new_truth[1],new_truth[0]]
+			lies = [lie for lie in lies if lie != converse_truth]
+			truths = [truth for truth in truths if truth != converse_truth]
+			rumors.append(new_truth)
+			guin_truths.append(new_truth)
 			
 		random.shuffle(rumors)
 		# and write this info to Guinevere's file
