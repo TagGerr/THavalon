@@ -157,7 +157,7 @@ The Lovers are a valid target for Assassination.
 Lancelot is a Good role that is allowed to play Reversal cards. They are provided no other information, and they appear Evil to Merlin. 
 
 #### Guinevere 
-Guinevere is a Good role who knows about other role relationships present in the game. Guinevere is given two or three pieces of information ("rumors") of the form "A knows something about B". It is up to Guinevere to make sense of this cryptic information. 
+Guinevere is a Good role who knows about other role relationships present in the game. Guinevere is given two pieces of information ("rumors") of the form "A knows something about B". It is up to Guinevere to make sense of this cryptic information. 
 
 Guinevere's truths can include any of the following: 
 - Percival seeing Merlin or Morgana
@@ -170,7 +170,7 @@ Guinevere's truths can include any of the following:
 
 In addition to the correct information provided, Guinevere is also given a single piece of completely false information (e.g. a relationship between two unlinked players). 
 
-Guinevere is given one truth and one lie in 5 player games, and an additional truth in games with 7 or more players. 
+In conclusion, Guinevere is given one truth and one lie. 
 
 It is important to note that Guinevere will never see any information about Mordred (true or false) of any form. If there is a Mordred, Guinevere will have no rumors that point from or towards that person. 
 
