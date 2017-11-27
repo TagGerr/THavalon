@@ -305,13 +305,6 @@ def main():
 			truths = [truth for truth in truths if truth != converse_lie]
 			rumors.append(new_lie)
 			guin_lies.append(new_lie)
-		if len(truths) > 0 and (num_players >= 7): 
-			new_truth = truths.pop(0)
-			converse_truth = [new_truth[1],new_truth[0]]
-			lies = [lie for lie in lies if lie != converse_truth]
-			truths = [truth for truth in truths if truth != converse_truth]
-			rumors.append(new_truth)
-			guin_truths.append(new_truth)
 			
 		random.shuffle(rumors)
 		# and write this info to Guinevere's file
