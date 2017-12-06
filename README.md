@@ -181,41 +181,40 @@ Arthur only appears in games with at least 7 players.
 ##### Ability: Proclamation 
 After two Quests have Failed, you may (but are not required to) formally declare as Arthur, establishing you as a Good player for the remainder of the game. You may still propose teams, vote on proposals, and be selected to go on Quests, as usual. You may use this ability at any point in the game after two Quests have Failed.
 
+#### Titania
+Titania is a Good role who interferes with the information of a random Evil player. Titania is also provided two minor pieces of information: 1) the role of the Evil player whose information they messed up; and 2) whether there is an Oberon in the game. Players whose role information is affected by an Titania are told that their information has been corrupted. 
 
-#### Titania 
-Titania is a Good role who is provided no information but can intervene on certain missions to potentially change the outcome.
+Titania only appears in games with at least 7 players. 
 
-Titania can only appear in games with 10 players, and is mutually exclusive with Oberon. 
+- Titania can affect any Evil role. 
+- Evil roles other than Colgrevance are simply shown one additional person in their list of Evil players. 
+- Colgrevance loses information about the role of one random Evil player. 
+
+#### Gawain 
+Gawain is a Good role who is provided no information but can intervene on certain missions to potentially change the outcome.
+
+Gawain can only appear in games with 10 players. 
 
 ##### Ability: Suspend
-Once per game, on either the 2nd mission (always) or the 3rd mission (if the first two missions had different outcomes, e.g. 1 Successful mission and 1 Failed mission), if Titania is not on the mission team, they may formally declare as Titania after mission cards have been selected (and potentially Inquisitioned) but before they are shuffled and revealed. Titania may then collect all mission cards, excluding the mission leader's, shuffle them, examine them, and pick one card to remove. The mission leader's card and remaining cards are then shuffled together and the cards revealed as per usual. 
+Once per game, on either the 2nd mission (always) or the 3rd mission (if the first two missions had different outcomes, e.g. 1 Successful mission and 1 Failed mission), if Gawain is not on the mission team, they may formally declare as Gawain after mission cards have been selected (and potentially Inquisitioned) but before they are shuffled and revealed. Gawain may then collect all mission cards, excluding the mission leader's, shuffle them, examine them, and pick one card to remove. The mission leader's card and remaining cards are then shuffled together and the cards revealed as per usual. 
 
-The next time Titania is on a mission, they must play the card they removed on a previous mission, even if they normally could not play that card (e.g. Reversal or Fail). 
+The next time Gawain is on a mission, they must play the card they removed on a previous mission, even if they normally could not play that card (e.g. Reversal or Fail). 
 
 This ability has lots of interaction with other mechanics. Rulings for certain scenarios are as follows: 
-- If the current mission team does not contain the mission leader, a Titania using the Suspend ability may look at all cards played on that mission and remove one. 
-- If Titania attempts to suspend Agravaine's Fail card (e.g. the Agravaine player is one of the people whose card Titania can Suspend, and there is only one Fail among that set of cards), Agravaine may declare to cause the mission to Fail regardless. If Agarvaine does this, Titania is **not** required to play a Fail card on the next mission they are on. 
-- Titania cannot look at or Suspend a card that has already been removed via Strong Inquisition. 
+- If the current mission team does not contain the mission leader, a Gawain using the Suspend ability may look at all cards played on that mission and remove one. 
+- If Titania attempts to suspend Agravaine's Fail card (e.g. the Agravaine player is one of the people whose card Gawain can Suspend, and there is only one Fail among that set of cards), Agravaine may declare to cause the mission to Fail regardless. If Agarvaine does this, Gawain is **not** required to play a Fail card on the next mission they are on. 
+- Gawain cannot look at or Suspend a card that has already been removed via Strong Inquisition. 
 
-In 10 player games, players are expected to assume there is a Titania/Oberon (e.g. choosing the Quest card they wish to play and making it clear which card they have chosen to play for that Quest) for the 2nd and 3rd missions, even if they don't know if Titania/Oberon is present. This is to preserve the surprise of the Titania/Oberon declaration. 
+In 10 player games, players are expected to assume there is a Gawain (e.g. choosing the Quest card they wish to play and making it clear which card they have chosen to play for that Quest) for the 2nd and 3rd missions, even if they don't know if Gawain is present. This is to preserve the surprise of the Gawain declaration. 
 
 ### Evil (Minions of Mordred) 
 The goal of Evil players is to have either three missions fail, or should Good have won, assassinate either Merlin or the Lovers. 
 
 #### Mordred
-Mordred's role is unchanged from the base rules of Avalon. Mordred knows most of the other Evil team members, but is not seen by Merlin. 
-
-- Mordred correctly sees Agravaine, Colgrevance, Maelegant, and Morgana as Evil 
-- Mordred is not aware of Oberon
-- Mordred is incorrectly seen by Merlin as Good 
+Mordred's role is unchanged from the base rules of Avalon. Mordred knows other Evil players (except Colgrevance), and other Evil players know that they are also Evil.  Furthermore, Mordred is also not seen by Merlin. 
 
 #### Morgana 
-Morgana's role is unchanged from the base rules of Avalon. Morgana knows most of the other Evil team members, but is also seen incorrectly by Percival as Merlin. 
-
-- Morgana correctly sees Agravaine, Colgrevance, Maelegant, and Mordred as Evil 
-- Morgana is not aware of Oberon
-- Morgana is incorrectly seen by Percival as Merlin 
-
+Morgana's role is unchanged from the base rules of Avalon. Morgana knows other Evil players (except Colgrevance), and other Evil players know that they are also Evil.  Furthermore, Morgana is also seen incorrectly by Percival as Merlin. 
 
 ##### Ability: Sorceress 
 Whenever Morgana has a proposal that is not the last proposal of the round (e.g. they do not have Force), they may declare as Morgana and reverse team proposal order for the rest of the game. The remaining proposals for the current round are granted to the people sitting next to the person who proposed the first team of the round (if proposals are typically made clockwise, it begins with the person to the right of the first proposer; if proposals are typically made counterclockwise, it begins with the person to the left of the first proposer). Proposals then proceed counterclockwise (if originally clockwise), or clockwise (if originally counterclockwise). 
@@ -223,50 +222,28 @@ Whenever Morgana has a proposal that is not the last proposal of the round (e.g.
 Morgana using this ability counts as one of the proposals for their round. 
 
 #### Maelegant 
-Maelegant is an Evil role that is allowed to play Reversal cards and knows most of the other Evil team members. 
+Maelegant is an Evil role that is allowed to play Reversal cards. Maelegant knows other Evil players (except Colgrevance), and other Evil players know that they are also Evil. 
 
-- Morgana correctly sees Agravaine, Colgrevance, Maelegant, and Mordred as Evil 
-- Morgana is not aware of Oberon
-- Maelegant is seen by Guinevere and Merlin 
+#### Oberon
+Oberon is a Evil role who interferes with the information of a random Good player. Oberon is significantly changed from base rules, in that they know other Evil players (except Colgrevance), and other Evil players know that they are also Evil. Players whose role information is affected by an Oberon are told that their information has been corrupted. 
+
+- Oberon can affect any Good role except Lancelot, Titania, and Gawain. 
+- Merlin is shown one additional person who is neither Evil nor Lancelot.
+- Percival is shown one additional person who is neither Merlin nor Morgana. 
+- Tristan and Iseult are shown one additioanl person who is not their Lover. 
+- Arthur is shown one additional random Good role that is not in the game. 
+- Guinevere loses half of one of their rumors (e.g. "A sees B" might turn into "??? sees B" or "A sees ???".) 
 
 #### Agravaine 
-Agravaine is an Evil role that can force missions they go on to Fail. In addition to knowing the other visible Evil roles (e.g. all Evil except Oberon), Agravaine can cause any mission they are on to Fail, even if it would have succeeded. 
-
-- Agravaine correctly sees Colgrevance, Maelegant, Mordred, and Morgana as Evil 
-- Agravaine is not aware of Oberon
-- Agravaine must play a Fail card whenever they are sent on a Quest. 
-
-Agravaine only appears in games with at least 8 players. 
+Agravaine is an Evil role that can force missions they go on to Fail. In addition to knowing the other visible Evil roles (e.g. all Evil except Oberon), Agravaine can cause any mission they are on to Fail, even if it would have succeeded. Agravaine knows other Evil players (except Colgrevance), and other Evil players know that they are also Evil. 
 
 ##### Ability: Betrayal 
 After mission cards have been revealed, if the Quest is considered to have succeeded despite Agravaine playing their Fail card, Agravaine may declare to cause it to fail anyway. Situations where this is relevant are when a single Reversal is played, the mission requires 2 Fails, or Agravaine is targeted by the removal option of Strong Inquisition. 
 
 #### Colgrevance 
-Colgrevance is an Evil role that can be present in games with 10 players. Colgrevance knows, precisely, the roles of all other Evil characters in the game. Thus, Colgrevane will be told not only who else is Evil, but which Evil role they possess. Note that Colgrevane *does* know who Oberon is, if Oberon is present in the game.  
+Colgrevance is an Evil role that can be present in games with 10 players. Colgrevance knows, precisely, the roles of all other Evil characters in the game. Thus, Colgrevane will be told not only who else is Evil, but which Evil role they possess. To balance this, other Evil players do not know who they are initially, and must figure it out during the course of the game. 
 
-- Colgrevance correctly sees Mordred, Morgana, Maelegant, Agravaine, and Oberon, and knows their role. 
-- Colgrevance is aware of Oberon
-- Colgrevance is correctly seen by Merlin as Evil. 
-
-Colgrevance only appears in games with at least 7 players. 
-
-
-#### Oberon 
-Oberon is an Evil role who is hidden from the rest of the Evil team. All members of the Evil team will know there's an Oberon, but not who it is (a Colgrevance will know who an Oberon is anyway, as per their information). Oberon is the evil-counterpart to Titania, and can declare to make a possibly successful mission fail or generate chaos. 
-
-Oberon can only appear in games with 10 players, and is mutually exclusive with Titania. Note that, unlike Titania, Oberon is seen by Merlin as Evil.  
-
-##### Ability: Suspend
-Once per game, on either the 2nd mission (always) or the 3rd mission (if the first two missions had different outcomes, e.g. 1 Successful mission and 1 Failed mission), if Oberon is not on the mission team, they may formally declare as Titania (even though they are Oberon) after mission cards have been selected (and potentially Inquisitioned) but before they are shuffled and revealed. Oberon may then collect all mission cards, excluding the mission leader's, shuffle them, examine them, and pick one card to remove. The mission leader's card and remaining cards are then shuffled together and the cards revealed as per usual. 
-
-The next time Oberon is on a mission, they must play the card they removed on a previous mission, even if they normally could not play that card (e.g. Reversal). 
-
-This ability has lots of interaction with other mechanics. Rulings for certain scenarios are as follows: 
-- If the current mission team does not contain the mission leader, a Oberon using the Suspend ability may look at all cards played on that mission and remove one. 
-- If Oberon attempts to Suspend Agravaine's Fail card (e.g. the Agravaine player is one of the people whose card Oberon can Suspend, and there is only one Fail among that set of cards), Agravaine may declare to cause the mission to Fail regardless. If Agarvaine does this, Oberon is **not** required to play a Fail card on the next mission they are on. 
-- Oberon cannot look at or Suspend a card that has already been removed via Strong Inquisition. 
-
-In 10 player games, players are expected to assume there is a Titania/Oberon (e.g. choosing the Quest card they wish to play and making it clear which card they have chosen to play for that Quest) for the 2nd and 3rd missions, even if they don't know if Titania/Oberon is present. This is to preserve the surprise of the Titania/Oberon declaration. 
+Colgrevance only appears in games with at least 10 players. 
 
 ### Neutral 
 The goal of Neutral roles depends on the role. Currently, the two neutral roles are guaranteed to appear in 9 player games, and will not appear in any other game. (Note that these roles are currently not playtested, and thus may be hilariously unbalanced). 
