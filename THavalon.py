@@ -448,7 +448,7 @@ def main():
 		filename = "game/" + player_name
 		with open(filename, "w") as file:
 			file.write("You are Gawain.\n")
-			file.write("\nAbility: Once per game, after the 1st mission and before there are two missions with the same outcome (Pass or Fail), after the cards are chosen but before they are shuffled together, you may declare as Gawain. By doing so, you may collect the cards played by everyone except for the mission leader, shuffle them together and select one to remove. You then return the remaining cards to the mission leader, who shuffles the played cards and reveals the result. The card you removed does not affect the mission, but the next time you go on a mission, you must play the card you removed, even if you normally couldn't play it.\n\n") 
+			file.write("\nAbility: Once per game, after the 1st mission and before there are two missions with the same outcome (Pass or Fail) and if you are not on the mission, after the cards are chosen but before they are shuffled together, you may declare as Gawain. By doing so, you may collect the cards played by everyone except for the mission leader, shuffle them together and select one to remove. You then return the remaining cards to the mission leader, who shuffles the played cards and reveals the result. The card you removed does not affect the mission, but the next time you go on a mission, you must play the card you removed, even if you normally couldn't play it.\n\n") 
 			file.write("\nNote: If you remove a single Fail card, and Agravaine is on the mission, then Agravaine may declare and cause the mission to fail anyway. If Agravaine does this, you are no longer required to play a Fail card.\n\n")
 
 	'''
