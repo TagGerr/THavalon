@@ -699,7 +699,7 @@ def main():
 		
 		with open(filename, "w") as file:
 			file.write("You are Colgrevance.\n")
-			if titania_target_role == "Mordred": 
+			if titania_target_role == "Colgrevance": 
 				file.write("\nYOU HAVE BEEN TITANIA'D.\nOne of your teammate's roles has been obscured.\n\n")
 			
 			for seen_player in seen:
