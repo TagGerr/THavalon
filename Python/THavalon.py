@@ -30,15 +30,11 @@ def main():
 	all_evil_roles_in_order = ["Mordred", "Morgana", "Maelegant", "Agravaine", "Colgrevance", "Oberon"]
 
 	# assign the roles in the game
-	good_roles = ["Merlin", "Percival", "Tristan", "Iseult", "Guinevere"]
-	evil_roles = ["Mordred", "Morgana"]
-
-	good_roles.append("Lancelot")
-	evil_roles.append("Maelegant")
-
+	good_roles = ["Merlin", "Percival", "Tristan", "Iseult", "Guinevere", "Lancelot"]
+	evil_roles = ["Mordred", "Morgana", "Maelegant"]
+	neutral_roles = ["Pelinor", "Questing Beast"]
 
 	if num_players >= 7:
-		# good_roles.append("Guinevere")
 		good_roles.append("Arthur")
 		evil_roles.append("Colgrevance")
 
@@ -58,22 +54,21 @@ def main():
 	# determine the number of roles in the game
 	if num_players == 10:
 		num_evil = 4
-		num_good = 6
-	elif num_players == 9:
-		num_evil  = 3
-		num_good = 4
-	elif num_players == 7 or num_players == 8:
+	elif num_players > 6: # 7 to 9
 		num_evil = 3
-		num_good = num_players - num_evil
 	else: # 5 or 6
 		num_evil = 2
-		num_good = num_players - num_evil
+	
+	num_neutral = 2 if num_players == 9 else 0
+	num_good = num_players - num_evil - num_neutral
+
 
 	# assign players to teams
 	assignments = {}
 	reverse_assignments = {}
 	good_roles_in_game = set()
 	evil_roles_in_game = set()
+	neutral_roles_in_game = set()
 
 	if num_players == 9:
 		pelinor = players[8]
@@ -86,6 +81,7 @@ def main():
 
 	good_players = players[:num_good]
 	evil_players = players[num_good:num_good + num_evil]
+	neutral_players = players[num_good + num_evil:]
 
 
 	# assign good roles
@@ -101,6 +97,13 @@ def main():
 		assignments[evil_player] = player_role
 		reverse_assignments[player_role] = evil_player
 		evil_roles_in_game.add(player_role)
+
+	# assign neutral roles
+	for neutral_player in neutral_players:
+		player_role = neutral_roles.pop()
+		assignments[neutral_player] = player_role
+		reverse_assignments[player_role] = neutral_player
+		neutral_roles_in_game.add(player_role)
 	
 	# lone tristan
 	''' 
