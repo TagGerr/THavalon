@@ -27,18 +27,13 @@ def main():
 	second_mission_starter = three_players[2]
 
 	all_good_roles_in_order = ["Percival", "Merlin", "Galahad", "Tristan", "Iseult", "Uther", "Arthur", "Lancelot", "Guinevere", "Ygraine", "Gawain", "Titania"]
-	all_evil_roles_in_order = ["Mordred", "Morgana", "Maelegant", "Agravaine", "Colgrevance", "Oberon"]
+	all_evil_roles_in_order = ["Mordred", "Morgana", "Maleagant", "Agravaine", "Colgrevance", "Oberon"]
 
 	# assign the roles in the game
-	good_roles = ["Merlin", "Percival", "Tristan", "Iseult", "Guinevere"]
-	evil_roles = ["Mordred", "Morgana"]
-
-	good_roles.append("Lancelot")
-	evil_roles.append("Maelegant")
-
+	good_roles = ["Percival", "Merlin", "Tristan", "Iseult", "Lancelot", "Guinevere", "Gawain"]
+	evil_roles = ["Mordred", "Morgana", "Maleagant"]
 
 	if num_players >= 7:
-		# good_roles.append("Guinevere")
 		good_roles.append("Arthur")
 		evil_roles.append("Colgrevance")
 
@@ -103,7 +98,6 @@ def main():
 		evil_roles_in_game.add(player_role)
 	
 	# lone tristan
-	''' 
 	if ("Tristan" in good_roles_in_game and "Iseult" not in good_roles_in_game and num_players >= 7):
 		good_roles_in_game.remove("Tristan")
 		good_roles_in_game.add("Uther")
@@ -120,18 +114,16 @@ def main():
 		assignments[iseult_player] = "Uther" 
 		del reverse_assignments["Iseult"]
 		reverse_assignments["Uther"] = iseult_player
-	''' 
-	'''
+
 	# lone guinevere -> ygraine
-	if ("Guinevere" in good_roles_in_game and "Lancelot" not in good_roles_in_game and "Arthur" not in good_roles_in_game and "Maelegant" not in evil_roles_in_game and num_players >= 7):
+        if ("Guinevere" in good_roles_in_game and "Lancelot" not in good_roles_in_game and "Arthur" not in good_roles_in_game and "Maleagant" not in evil_roles_in_game and num_players >= 7):
 		good_roles_in_game.remove("Guinevere")
 		good_roles_in_game.add("Ygraine")
 		guinevere_player = reverse_assignments["Guinevere"]
 		assignments[guinevere_player] = "Ygraine" 
 		del reverse_assignments["Guinevere"]
 		reverse_assignments["Ygraine"] = guinevere_player
-	'''
-	'''
+
 	# lone percival -> galahad
 	if ("Percival" in good_roles_in_game and "Merlin" not in good_roles_in_game and "Morgana" not in evil_roles_in_game and num_players >= 7):
 		good_roles_in_game.remove("Percival")
@@ -140,7 +132,7 @@ def main():
 		assignments[percival_player] = "Galahad" 
 		del reverse_assignments["Percival"]
 		reverse_assignments["Galahad"] = percival_player
-	'''
+
 	# delete and recreate game directory
 	if os.path.isdir("game"):
 		shutil.rmtree("game")
@@ -148,7 +140,7 @@ def main():
 
 	# make every role's file
 
-	# Merlin sees: Morgana, Maelegant, Oberon, Agravaine, Colgrevance, Lancelot* as evil 
+        # Merlin sees: Morgana, Maleagant, Oberon, Agravaine, Colgrevance, Lancelot* as evil 
 	if "Merlin" in good_roles_in_game:
 		# determine who Merlin sees
 		seen = []
@@ -161,7 +153,7 @@ def main():
 
 		# and write this info to Merlin's file
 		player_name = reverse_assignments["Merlin"]
-		filename = "game/" + player_name
+		filename = "game/" + player_name + ".txt"
 		with open(filename, "w") as file:
 			file.write("You are Merlin.\n")
 			for seen_player in seen:
@@ -179,7 +171,7 @@ def main():
 
 		# and write this info to Percival's file
 		player_name = reverse_assignments["Percival"]
-		filename = "game/" + player_name
+		filename = "game/" + player_name + ".txt"
 		with open(filename, "w") as file:
 			file.write("You are Percival.\n")
 			for seen_player in seen:
@@ -188,7 +180,7 @@ def main():
 	if "Tristan" in good_roles_in_game:
 		# write the info to Tristan's file
 		player_name = reverse_assignments["Tristan"]
-		filename = "game/" + player_name
+		filename = "game/" + player_name + ".txt"
 		with open(filename, "w") as file:
 			file.write("You are Tristan.\n")
 			# write Iseult's info to file
@@ -201,7 +193,7 @@ def main():
 	if "Iseult" in good_roles_in_game:
 		# write this info to Iseult's file
 		player_name = reverse_assignments["Iseult"]
-		filename = "game/" + player_name
+		filename = "game/" + player_name + ".txt"
 		with open(filename, "w") as file:
 			file.write("You are Iseult.\n")
 			# write Tristan's info to file
@@ -214,7 +206,7 @@ def main():
 	if "Lancelot" in good_roles_in_game: 
 		# write ability to Lancelot's file 
 		player_name = reverse_assignments["Lancelot"] 
-		filename = "game/" + player_name 
+		filename = "game/" + player_name + ".txt"
 		with open(filename, "w") as file:
 			file.write("You are Lancelot. You are on the Good team. \n\n") 
 			file.write("Ability: Reversal \n")	
@@ -316,7 +308,7 @@ def main():
 		random.shuffle(rumors)
 		# and write this info to Guinevere's file
 		player_name = reverse_assignments["Guinevere"]
-		filename = "game/" + player_name
+		filename = "game/" + player_name + ".txt"
 		with open(filename, "w") as file:
 			file.write("You are Guinevere.\n\n")
 			for rumor in rumors: 
@@ -331,7 +323,7 @@ def main():
 
 		# and write this info to Arthur's file
 		player_name = reverse_assignments["Arthur"]
-		filename = "game/" + player_name
+		filename = "game/" + player_name + ".txt"
 		with open(filename, "w") as file:
 			file.write("You are Arthur.\n\n")
 			file.write("The following good roles are in the game:\n")
@@ -358,7 +350,7 @@ def main():
 		random.shuffle(seen)
 		
 		# write info to Gawain's file 
-		filename = "game/" + player_name
+		filename = "game/" + player_name + ".txt"
 		with open(filename, "w") as file:
 			file.write("You are Gawain.\n\n")
 			file.write("The following players are not all evil:\n")
@@ -372,7 +364,7 @@ def main():
 	if "Uther" in good_roles_in_game:
 		# write this info to Uther's file
 		player_name = reverse_assignments["Uther"]
-		filename = "game/" + player_name
+		filename = "game/" + player_name + ".txt"
 		good_players_no_uther = set(good_players) - set([player_name]) 
 		stalked_good = random.sample(good_players_no_uther, 1)[0] 
 		with open(filename, "w") as file:
@@ -385,13 +377,13 @@ def main():
 	if "Ygraine" in good_roles_in_game:
 		# write this info to Ygraine's file
 		player_name = reverse_assignments["Ygraine"]
-		filename = "game/" + player_name
+		filename = "game/" + player_name + ".txt"
 		evil_players_no_mordred = set(evil_players) - set(reverse_assignments["Mordred"]) 
 		stalked_evil = random.sample(evil_players_no_mordred, 1)[0] 
 		with open(filename, "w") as file:
 			file.write("You are Ygraine.\n")
 			file.write("You are stalking " + stalked_evil + "; they are evil.\n")
-			file.write("\n (The following roles are not in the game: Guinevere, Lancelot, Arthur, and Maelegant.)\n")
+                        file.write("\n (The following roles are not in the game: Guinevere, Lancelot, Arthur, and Maleagant.)\n")
 			
 	if "Galahad" in good_roles_in_game:
 		# determine which roles Galahad sees
@@ -402,7 +394,7 @@ def main():
 
 		# and write this info to Arthur's file
 		player_name = reverse_assignments["Galahad"]
-		filename = "game/" + player_name
+		filename = "game/" + player_name + ".txt"
 		with open(filename, "w") as file:
 			file.write("You are Galahad.\n\n")
 			file.write("The following evil roles are in the game:\n")
@@ -412,7 +404,7 @@ def main():
 	
 	if "Titania" in good_roles_in_game:
 		player_name = reverse_assignments["Titania"]
-		filename = "game/" + player_name
+		filename = "game/" + player_name + ".txt"
 		with open(filename, "w") as file:
 			file.write("You are Titania. You are on the Good team.\n")
 			file.write("\nAbility: Once per game, after the 1st mission and before there are two missions with the same outcome (Pass or Fail), after the cards are chosen but before they are shuffled together, you may declare as Titania. By doing so, you may collect the cards played by everyone except for the mission leader, shuffle them together and select one to remove. You then return the remaining cards to the mission leader, who shuffles the played cards and reveals the result. The card you removed does not affect the mission, but the next time you go on a mission, you must play the card you removed, even if you normally couldn't play it.\n\n") 
@@ -429,7 +421,7 @@ def main():
 
 	if "Mordred" in evil_roles_in_game:
 		player_name = reverse_assignments["Mordred"]
-		filename = "game/" + player_name
+		filename = "game/" + player_name + ".txt"
 		with open(filename, "w") as file:
 			file.write("You are Mordred. (Join us, we have jackets and meet on Thursdays. ~ Andrew and Kath)\n")
 			for evil_player in evil_players_no_oberon:
@@ -440,7 +432,7 @@ def main():
 
 	if "Morgana" in evil_roles_in_game:
 		player_name = reverse_assignments["Morgana"]
-		filename = "game/" + player_name
+		filename = "game/" + player_name + ".txt"
 		with open(filename, "w") as file:
 			file.write("You are Morgana.\n")
 			for evil_player in evil_players_no_oberon:
@@ -452,7 +444,7 @@ def main():
 
 	if "Oberon" in evil_roles_in_game:
 		player_name = reverse_assignments["Oberon"]
-		filename = "game/" + player_name
+		filename = "game/" + player_name + ".txt"
 		with open(filename, "w") as file:
 			file.write("You are Oberon.\n")
 			for evil_player in evil_players_no_oberon:
@@ -463,7 +455,7 @@ def main():
 			
 	if "Agravaine" in evil_roles_in_game:
 		player_name = reverse_assignments["Agravaine"]
-		filename = "game/" + player_name
+		filename = "game/" + player_name + ".txt"
 		with open(filename, "w") as file:
 			file.write("You are Agravaine.\n")
 			for evil_player in evil_players_no_oberon:
@@ -476,12 +468,12 @@ def main():
 			file.write("Drawback: You may only play Fail cards while on missions.\n");
 			
 				
-	if "Maelegant" in evil_roles_in_game: 
-		# write ability to Lancelot's file 
-		player_name = reverse_assignments["Maelegant"] 
-		filename = "game/" + player_name 
+	if "Maleagant" in evil_roles_in_game: 
+		# write ability to Maleagant's file 
+		player_name = reverse_assignments["Maleagant"] 
+		filename = "game/" + player_name + ".txt"
 		with open(filename, "w") as file:
-			file.write("You are Maelegant. \n\n") 
+			file.write("You are Maleagant. \n\n") 
 			for evil_player in evil_players_no_oberon:
 				if evil_player != player_name:
 					file.write(evil_player + " is a fellow member of the evil council.\n")
@@ -494,7 +486,7 @@ def main():
 				
 	if "Colgrevance" in evil_roles_in_game:
 		player_name = reverse_assignments["Colgrevance"]
-		filename = "game/" + player_name
+		filename = "game/" + player_name + ".txt"
 		with open(filename, "w") as file:
 			file.write("You are Colgrevance.\n")
 			for evil_player in evil_players:
@@ -504,7 +496,7 @@ def main():
 	# TODO: pelinor + questing beast
 	if num_players == 9:
 		# write pelinor's information
-		pelinor_filename = "game/" + pelinor
+		pelinor_filename = "game/" + pelinor + ".txt"
 		with open(pelinor_filename, "w") as file:
 			file.write("You are Pelinor.\n\n")
 			file.write("You win if one of the following conditions are met:\n")
@@ -512,7 +504,7 @@ def main():
 			file.write("[2]: You are on a mission where a Questing Beast Was Here Card is played, and three missions succeed.\n")
 			file.write("[3]: If neither of the previous two conditions are met at the end of the game, you declare as Pelinor prior to Assassination and name the person you believe to be the Questing Beast. You are told if you are correct at the conclusion of any other post-game phases. If you are correct, you win.\n")
 
-		questing_beast_filename = "game/" + questing_beast
+		questing_beast_filename = "game/" + questing_beast + ".txt"
 		with open(questing_beast_filename, "w") as file:
 			file.write("You are the Questing Beast.\n")
 			file.write("You must play the 'Questing Beast Was Here' card on missions. Once per game, you can play a Success card instead of a Questing Beast Was Here card.\n\n")
@@ -531,21 +523,21 @@ def main():
 			evil_players_no_mordred = list(set(evil_players))
 		random.shuffle(evil_players_no_mordred)
 		bonus_ability_hijack = evil_players_no_mordred[0] 
-		bonus_hijack_filename = "game/" + bonus_ability_hijack 
+		bonus_hijack_filename = "game/" + bonus_ability_hijack + ".txt"
 		with open(bonus_hijack_filename, "a") as file: 
 			file.write("\n \n \nYou also have the following ability, in addition to any other abilities you may possess.")
 			file.write("\nAbility: Should any mission get to the last proposal of the round, after the people on the mission have been named, you may declare as Oberon to replace one person on that mission with yourself.\n\n")
 			file.write("Note: You may not use this ability after two missions have already failed. Furthermore, you may only use this ability once per game.\n"); 
 				
 	# write start file
-	with open("game/start", "w") as file:
+        with open("game/start.txt", "w") as file:
 		file.write("The players proposing teams for the first mission are:\n")
 		for first_mission_proposer in first_mission_proposers:
 			file.write(first_mission_proposer + "\n")
 		file.write("\n" + second_mission_starter + " is the starting player of the 2nd round.\n")
 
 	# write do not open
-	with open("game/DoNotOpen", "w") as file:
+        with open("game/DoNotOpen.txt", "w") as file:
 		file.write("Player -> Role\n\nGOOD TEAM:\n")
 		for role in all_good_roles_in_order:
 			if role in reverse_assignments:
