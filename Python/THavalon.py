@@ -31,8 +31,8 @@ def main():
 	all_neutral_roles_in_order = ["Pelinor", "Questing Beast"]
 
 	# assign the roles in the game
-	good_roles = ["Percival", "Merlin", "Tristan", "Iseult", "Lancelot", "Guinevere", "Gawain"]
-	evil_roles = ["Mordred", "Morgana", "Maleagant"]
+	good_roles = ["Merlin", "Percival", "Tristan", "Iseult", "Guinevere", "Lancelot", "Gawain"]
+	evil_roles = ["Mordred", "Morgana", "Maelegant"]
 	neutral_roles = ["Pelinor", "Questing Beast"]
 
 	if num_players >= 7:
@@ -60,9 +60,16 @@ def main():
 		num_evil = 3
 	else: # 5 or 6
 		num_evil = 2
+<<<<<<< HEAD
 
 	num_neutral = 2 if num_players == 9 else 0
 	num_good = num_players - num_evil - num_neutral
+=======
+	
+	num_neutral = 2 if num_players == 9 else 0
+	num_good = num_players - num_evil - num_neutral
+
+>>>>>>> ff10db0479c4075b0c999307c90508dc303279aa
 
 	# assign players to teams
 	assignments = {}
@@ -70,11 +77,26 @@ def main():
 	good_roles_in_game = set()
 	evil_roles_in_game = set()
 	neutral_roles_in_game = set()
+<<<<<<< HEAD
+=======
+
+	if num_players == 9:
+		pelinor = players[8]
+		assignments[pelinor] = "Pelinor"
+		reverse_assignments["Pelinor"] = pelinor
+
+		questing_beast = players[7]
+		assignments[questing_beast] = "Questing Beast"
+		reverse_assignments["Questing Beast"] = questing_beast
+>>>>>>> ff10db0479c4075b0c999307c90508dc303279aa
 
 	good_players = players[:num_good]
 	evil_players = players[num_good:num_good + num_evil]
 	neutral_players = players[num_good + num_evil:]
+<<<<<<< HEAD
 
+=======
+>>>>>>> ff10db0479c4075b0c999307c90508dc303279aa
 
 	# assign neutral roles
 	for neutral_player in neutral_players:
@@ -96,6 +118,13 @@ def main():
 		assignments[evil_player] = player_role
 		reverse_assignments[player_role] = evil_player
 		evil_roles_in_game.add(player_role)
+
+	# assign neutral roles
+	for neutral_player in neutral_players:
+		player_role = neutral_roles.pop()
+		assignments[neutral_player] = player_role
+		reverse_assignments[player_role] = neutral_player
+		neutral_roles_in_game.add(player_role)
 	
 	# lone tristan
 	if ("Tristan" in good_roles_in_game and "Iseult" not in good_roles_in_game and num_players >= 7):
