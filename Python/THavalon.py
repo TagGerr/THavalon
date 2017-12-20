@@ -22,16 +22,18 @@ def main():
 	# choose 3 players
 	three_players = random.sample(players, 3)
 
-	# first two proppose for the first mission, last is starting player of second round
+	# first two propose for the first mission, last is starting player of second round
 	first_mission_proposers = three_players[:2]
 	second_mission_starter = three_players[2]
 
 	all_good_roles_in_order = ["Percival", "Merlin", "Galahad", "Tristan", "Iseult", "Uther", "Arthur", "Lancelot", "Guinevere", "Ygraine", "Gawain", "Titania"]
 	all_evil_roles_in_order = ["Mordred", "Morgana", "Maleagant", "Agravaine", "Colgrevance", "Oberon"]
+	all_neutral_roles_in_order = ["Pelinor", "Questing Beast"]
 
 	# assign the roles in the game
 	good_roles = ["Percival", "Merlin", "Tristan", "Iseult", "Lancelot", "Guinevere", "Gawain"]
 	evil_roles = ["Mordred", "Morgana", "Maleagant"]
+	neutral_roles = ["Pelinor", "Questing Beast"]
 
 	if num_players >= 7:
 		good_roles.append("Arthur")
@@ -49,39 +51,37 @@ def main():
 	# shuffle the roles
 	random.shuffle(good_roles)
 	random.shuffle(evil_roles)
+	random.shuffle(neutral_roles)
 
 	# determine the number of roles in the game
 	if num_players == 10:
 		num_evil = 4
-		num_good = 6
-	elif num_players == 9:
-		num_evil  = 3
-		num_good = 4
-	elif num_players == 7 or num_players == 8:
+	elif num_players > 6: # 7 to 9
 		num_evil = 3
-		num_good = num_players - num_evil
 	else: # 5 or 6
 		num_evil = 2
-		num_good = num_players - num_evil
+
+	num_neutral = 2 if num_players == 9 else 0
+	num_good = num_players - num_evil - num_neutral
 
 	# assign players to teams
 	assignments = {}
 	reverse_assignments = {}
 	good_roles_in_game = set()
 	evil_roles_in_game = set()
-
-	if num_players == 9:
-		pelinor = players[8]
-		assignments[pelinor] = "Pelinor"
-		reverse_assignments["Pelinor"] = pelinor
-
-		questing_beast = players[7]
-		assignments[questing_beast] = "Questing Beast"
-		reverse_assignments["Questing Beast"] = questing_beast
+	neutral_roles_in_game = set()
 
 	good_players = players[:num_good]
 	evil_players = players[num_good:num_good + num_evil]
+	neutral_players = players[num_good + num_evil:]
 
+
+	# assign neutral roles
+	for neutral_player in neutral_players:
+		player_role = neutral_roles.pop()
+		assignments[neutral_player] = player_role
+		reverse_assignments[player_role] = neutral_player
+		neutral_roles_in_game.add(player_role)
 
 	# assign good roles
 	for good_player in good_players:
@@ -116,7 +116,7 @@ def main():
 		reverse_assignments["Uther"] = iseult_player
 
 	# lone guinevere -> ygraine
-        if ("Guinevere" in good_roles_in_game and "Lancelot" not in good_roles_in_game and "Arthur" not in good_roles_in_game and "Maleagant" not in evil_roles_in_game and num_players >= 7):
+	if ("Guinevere" in good_roles_in_game and "Lancelot" not in good_roles_in_game and "Arthur" not in good_roles_in_game and "Maleagant" not in evil_roles_in_game and num_players >= 7):
 		good_roles_in_game.remove("Guinevere")
 		good_roles_in_game.add("Ygraine")
 		guinevere_player = reverse_assignments["Guinevere"]
@@ -496,6 +496,7 @@ def main():
 	# TODO: pelinor + questing beast
 	if num_players == 9:
 		# write pelinor's information
+		pelinor = reverse_assignments["Pelinor"]
 		pelinor_filename = "game/" + pelinor + ".txt"
 		with open(pelinor_filename, "w") as file:
 			file.write("You are Pelinor.\n\n")
@@ -504,13 +505,14 @@ def main():
 			file.write("[2]: You are on a mission where a Questing Beast Was Here Card is played, and three missions succeed.\n")
 			file.write("[3]: If neither of the previous two conditions are met at the end of the game, you declare as Pelinor prior to Assassination and name the person you believe to be the Questing Beast. You are told if you are correct at the conclusion of any other post-game phases. If you are correct, you win.\n")
 
+		questing_beast = reverse_assignments["Questing Beast"]
 		questing_beast_filename = "game/" + questing_beast + ".txt"
 		with open(questing_beast_filename, "w") as file:
 			file.write("You are the Questing Beast.\n")
 			file.write("You must play the 'Questing Beast Was Here' card on missions. Once per game, you can play a Success card instead of a Questing Beast Was Here card.\n\n")
 			file.write("You win if all of the following conditions are met:\n")
 			file.write("[1]: You play at least one Questing Beast Was Here card.\n")
-			file.write("[2]: Either a) Pelinor is never on a mission where a Questing Beast Was Here card is played; or b) 3 Quests fail.\n\n")
+			file.write("[2]: Either \n\ta) Pelinor is never on a mission where a Questing Beast Was Here card is played; or \n\tb) 3 Quests fail.\n")
 			file.write("[3]: Pelinor fails to identify you after the conclusion of the game.\n\n")
 			file.write(pelinor + " is Pelinor.\n")
 
@@ -526,7 +528,7 @@ def main():
 		bonus_hijack_filename = "game/" + bonus_ability_hijack + ".txt"
 		with open(bonus_hijack_filename, "a") as file: 
 			file.write("\n \n \nYou also have the following ability, in addition to any other abilities you may possess.")
-			file.write("\nAbility: Should any mission get to the last proposal of the round, after the people on the mission have been named, you may declare as Oberon to replace one person on that mission with yourself.\n\n")
+			file.write("\nAbility: Should any mission get to the last proposal of the round, after the people on the mission have been named, you may declare as Evil to replace one person on that mission with yourself.\n\n")
 			file.write("Note: You may not use this ability after two missions have already failed. Furthermore, you may only use this ability once per game.\n"); 
 				
 	# write start file
@@ -544,6 +546,10 @@ def main():
 				file.write(reverse_assignments[role] + " -> " + role + "\n")
 		file.write("\n\nEVIL TEAM:\n")
 		for role in all_evil_roles_in_order:
+			if role in reverse_assignments:
+				file.write(reverse_assignments[role] + " -> " + role + "\n")
+		file.write("\n\nNEUTRAL PLAYERS:\n")
+		for role in all_neutral_roles_in_order:
 			if role in reverse_assignments:
 				file.write(reverse_assignments[role] + " -> " + role + "\n")
 		file.write("\n\nMISCELLANEOUS:\n")
